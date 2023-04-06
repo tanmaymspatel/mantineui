@@ -3,7 +3,7 @@ import { Global } from '@mantine/core';
 function GlobalStyles() {
     return (
         <Global
-            styles={(theme) => ({
+            styles={() => ({
                 '*, *::before, *::after': {
                     boxSizing: 'border-box',
                 },
@@ -16,10 +16,6 @@ function GlobalStyles() {
                 'body': {
                     margin: 0
                 },
-                'a.active, a:hover': {
-                    background: theme.colors.blue[9],
-                    color: theme.colors.gray[0]
-                }
             })}
         />
     )
