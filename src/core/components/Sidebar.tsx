@@ -31,15 +31,15 @@
 import { useState } from 'react';
 import { createStyles, Navbar, getStylesRef, rem } from '@mantine/core';
 import {
-    IconBellRinging,
     IconFingerprint,
     IconKey,
     IconSettings,
     Icon2fa,
     IconDatabaseImport,
-    IconReceipt2,
     IconSwitchHorizontal,
     IconLogout,
+    IconLayoutDashboard,
+    IconTable,
 } from '@tabler/icons-react';
 import { NavLink } from 'react-router-dom';
 
@@ -97,13 +97,13 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const data = [
-    { link: '/', label: 'Table', icon: IconBellRinging },
-    { link: '/billing', label: 'Billing', icon: IconReceipt2 },
-    { link: '/security', label: 'Security', icon: IconFingerprint },
-    { link: '/ssh-keys', label: 'SSH Keys', icon: IconKey },
-    { link: '/database', label: 'Databases', icon: IconDatabaseImport },
-    { link: '/auth', label: 'Authentication', icon: Icon2fa },
-    { link: '/other-settings', label: 'Other Settings', icon: IconSettings },
+    { link: '/', label: 'Dashboard', icon: IconLayoutDashboard },
+    { link: '/table', label: 'Table', icon: IconTable },
+    // { link: '/security', label: 'Security', icon: IconFingerprint },
+    // { link: '/ssh-keys', label: 'SSH Keys', icon: IconKey },
+    // { link: '/database', label: 'Databases', icon: IconDatabaseImport },
+    // { link: '/auth', label: 'Authentication', icon: Icon2fa },
+    // { link: '/other-settings', label: 'Other Settings', icon: IconSettings },
 ];
 
 function Sidebar({ opened }: any) {
