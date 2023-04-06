@@ -1,14 +1,27 @@
-import { Header, Text, MediaQuery, Burger, useMantineTheme } from '@mantine/core';
+import { createStyles, Header, MediaQuery, Burger, useMantineTheme, Group, Code, Avatar, ActionIcon } from '@mantine/core';
 
 import DarkMode from './DarkMode';
+import { MantineLogo } from '@mantine/ds';
+import { IconCalendar, IconCalendarHeart, IconMail, IconUser } from '@tabler/icons-react';
+
+const useStyles = createStyles((theme) => ({
+    header: {
+        paddingBottom: theme.spacing.md,
+        marginBottom: `calc(${theme.spacing.md} * 1.5)`,
+    },
+    code: {
+        fontWeight: 700
+    }
+}))
 
 function AppHeader({ opened, setOpened }: any) {
 
+    const { classes } = useStyles();
     const theme = useMantineTheme();
 
     return (
         <Header height={{ base: 60, md: 70 }} p="md">
-            <div style={{ display: 'flex', justifyContent: "space-between" }}>
+            <div style={{ display: 'flex', justifyContent: "space-between", height: "100%" }}>
                 <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
                     <Burger
                         opened={opened}
@@ -18,8 +31,16 @@ function AppHeader({ opened, setOpened }: any) {
                         mr="xl"
                     />
                 </MediaQuery>
-                <Text>Application header</Text>
-                <DarkMode />
+                <Group className={classes.header} position="apart">
+                    <MantineLogo size={28} />
+                    <Code className={classes.code}>v3.1.2</Code>
+                </Group>
+                <Group>
+                    <ActionIcon variant="light" p={4} radius="xl"><IconMail size="1.75rem" /></ActionIcon>
+                    <ActionIcon variant="light" p={4} radius="xl"><IconCalendar size="1.75rem" /></ActionIcon>
+                    <ActionIcon variant="light" p={4} radius="xl"><IconUser size="1.75rem" /></ActionIcon>
+                    <DarkMode />
+                </Group>
             </div>
         </Header>
     )
