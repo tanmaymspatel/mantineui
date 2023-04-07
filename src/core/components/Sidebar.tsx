@@ -1,48 +1,13 @@
-// import {
-//     Navbar,
-//     Text,
-//     Flex
-// } from '@mantine/core';
-// import { NavLink } from 'react-router-dom';
-
-// function Sidebar({ opened }: any) {
-//     return (
-//         <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 250 }}>
-//             <Navbar.Section grow mt="lg">
-//                 <Flex
-//                     direction="column"
-//                 >
-//                     <Text component={NavLink} p={8} variant='link' to="/">Table</Text>
-//                     <Text component={NavLink} p={8} variant='link' to="/title1">Example 2</Text>
-//                     <Text component={NavLink} p={8} variant='link' to="/title2">Example 3</Text>
-//                     <Text component={NavLink} p={8} variant='link' to="/title3">Example 4</Text>
-//                 </Flex>
-//             </Navbar.Section>
-//             <Navbar.Section>
-//                 <Text>Navbar footer</Text>
-//             </Navbar.Section>
-//         </Navbar>
-//     )
-// }
-
-// export default Sidebar
-
-
 import { useState } from 'react';
 import { createStyles, Navbar, getStylesRef, rem } from '@mantine/core';
 import {
-    IconFingerprint,
-    IconKey,
-    IconSettings,
-    Icon2fa,
-    IconDatabaseImport,
     IconSwitchHorizontal,
     IconLogout,
     IconLayoutDashboard,
     IconTable,
 } from '@tabler/icons-react';
 import { NavLink } from 'react-router-dom';
-
+// custom styles
 const useStyles = createStyles((theme) => ({
     header: {
         paddingBottom: theme.spacing.md,
@@ -99,16 +64,13 @@ const useStyles = createStyles((theme) => ({
 const data = [
     { link: '/', label: 'Dashboard', icon: IconLayoutDashboard },
     { link: '/table', label: 'Table', icon: IconTable },
-    // { link: '/security', label: 'Security', icon: IconFingerprint },
-    // { link: '/ssh-keys', label: 'SSH Keys', icon: IconKey },
-    // { link: '/database', label: 'Databases', icon: IconDatabaseImport },
-    // { link: '/auth', label: 'Authentication', icon: Icon2fa },
-    // { link: '/other-settings', label: 'Other Settings', icon: IconSettings },
 ];
-
+/**
+ * @returns Sidebar of the application 
+ */
 function Sidebar({ opened }: any) {
     const { classes, cx } = useStyles();
-    const [active, setActive] = useState('table');
+    const [active, setActive] = useState('Dashboard');
 
     const links = data.map((item) => (
         <NavLink

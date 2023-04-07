@@ -1,9 +1,9 @@
-import { createStyles, Header, MediaQuery, Burger, useMantineTheme, Group, Code, Avatar, ActionIcon } from '@mantine/core';
+import { createStyles, Header, MediaQuery, Burger, useMantineTheme, Group, Code, ActionIcon } from '@mantine/core';
 
 import DarkMode from './DarkMode';
 import { MantineLogo } from '@mantine/ds';
-import { IconCalendar, IconCalendarHeart, IconMail, IconUser } from '@tabler/icons-react';
-
+import { IconCalendar, IconMail, IconUser } from '@tabler/icons-react';
+// custom styles
 const useStyles = createStyles((theme) => ({
     header: {
         paddingBottom: theme.spacing.md,
@@ -13,7 +13,9 @@ const useStyles = createStyles((theme) => ({
         fontWeight: 700
     }
 }))
-
+/**
+ * @returns Header of the application
+ */
 function AppHeader({ opened, setOpened }: any) {
 
     const { classes } = useStyles();

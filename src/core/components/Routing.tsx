@@ -9,7 +9,9 @@ const useStyle = createStyles(() => ({
         padding: "16px"
     }
 }))
-
+/**
+ * @returns Routing of the application 
+ */
 function Routing() {
 
     const { classes } = useStyle();

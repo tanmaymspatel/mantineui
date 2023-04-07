@@ -4,8 +4,11 @@ import { AppShell, useMantineTheme } from '@mantine/core';
 import Sidebar from '../core/components/Sidebar';
 import AppHeader from '../core/components/AppHeader';
 import Routing from '../core/components/Routing';
-
+/**
+ * @returns layout of the application 
+ */
 function AppShellComponent() {
+    // subscription of the theme object
     const theme = useMantineTheme();
     const [opened, setOpened] = useState(false);
     return (

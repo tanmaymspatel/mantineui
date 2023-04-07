@@ -1,19 +1,49 @@
-import { Avatar, Card, Grid, Group, Stack, Text, ThemeIcon, createStyles, useMantineTheme } from '@mantine/core'
+import { Card, Grid, Group, Stack, Text, ThemeIcon, createStyles } from '@mantine/core'
 import { IconClipboardList } from '@tabler/icons-react';
-import avatar1 from '../../assets/images/avatar-1.png'
-import avatar2 from '../../assets/images/avatar-2.jpg'
-
+import TeamAvatars from './TeamAvatars';
+// custom styles 
 const useStyle = createStyles(() => ({
     card: {
         backgroundColor: "transparent",
     }
-}))
+}));
 
+const Teams = [
+    {
+        id: 1,
+        teamName: "Planning"
+    },
+    {
+        id: 2,
+        teamName: "Design"
+    },
+    {
+        id: 3,
+        teamName: "Development"
+    },
+    {
+        id: 4,
+        teamName: "Testing"
+    },
+]
+/**
+ * @returns Second section of the dashboard containing task and team statistics
+ */
 function Statistics() {
+
     const { classes } = useStyle();
-    const theme = useMantineTheme();
+    // team statistics cards 
+    const teamSection = Teams.map((team) => (
+        <Grid.Col sm={3} key={team.id}>
+            <Stack align="center" py={4}>
+                <h3>{team.teamName}</h3>
+                <TeamAvatars />
+            </Stack>
+        </Grid.Col>
+    ))
+
     return (
-        <Card className={classes.card} radius={0} my="xl" p={0}>
+        <Card className={classes.card} radius={0} my="lg" p={0}>
             <Grid>
                 <Grid.Col md={4}>
                     <Card shadow="sm" padding="lg" radius="md">
@@ -31,46 +61,7 @@ function Statistics() {
                 <Grid.Col md={8}>
                     <Card shadow="sm" padding="lg" radius="md">
                         <Grid>
-                            <Grid.Col sm={3}>
-                                <Stack align="center" py={4}>
-                                    <h3>Planning</h3>
-                                    <Avatar.Group spacing="md">
-                                        <Avatar src={avatar1} size={35} radius="xl" />
-                                        <Avatar src={avatar2} size={35} radius="xl" />
-                                        <Avatar size={35} radius="xl" color="indigo">+3</Avatar>
-                                    </Avatar.Group>
-                                </Stack>
-                            </Grid.Col>
-                            <Grid.Col sm={3} md={3}>
-                                <Stack align="center" py={4}>
-                                    <h3>Design</h3>
-                                    <Avatar.Group spacing="md">
-                                        <Avatar src={avatar1} size={35} radius="xl" />
-                                        <Avatar src={avatar2} size={35} radius="xl" />
-                                        <Avatar size={35} radius="xl" color="indigo">+3</Avatar>
-                                    </Avatar.Group>
-                                </Stack>
-                            </Grid.Col>
-                            <Grid.Col sm={3} md={3}>
-                                <Stack align="center" py={4}>
-                                    <h3>Development</h3>
-                                    <Avatar.Group spacing="md">
-                                        <Avatar src={avatar1} size={35} radius="xl" />
-                                        <Avatar src={avatar2} size={35} radius="xl" />
-                                        <Avatar size={35} radius="xl" color="indigo">+3</Avatar>
-                                    </Avatar.Group>
-                                </Stack>
-                            </Grid.Col>
-                            <Grid.Col sm={3} md={3}>
-                                <Stack align="center" py={4}>
-                                    <h3>Testing</h3>
-                                    <Avatar.Group spacing="md">
-                                        <Avatar src={avatar1} size={35} radius="xl" />
-                                        <Avatar src={avatar2} size={35} radius="xl" />
-                                        <Avatar size={35} radius="xl" color="indigo">+3</Avatar>
-                                    </Avatar.Group>
-                                </Stack>
-                            </Grid.Col>
+                            {teamSection}
                         </Grid>
                     </Card>
                 </Grid.Col>
