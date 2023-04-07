@@ -1,5 +1,7 @@
 import { Table } from '@mantine/core';
-
+/**
+ * @returns table component 
+ */
 function TableExample() {
     const elements = [
         { position: 6, mass: 12.011, symbol: 'C', name: 'Carbon' },
